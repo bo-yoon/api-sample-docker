@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-alpine
 RUN apk add tzdata
 RUN cp /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
-ENV APPNM portfolio-api
+ENV APPNM sb-api-sample
 
 ENV ROOT_PATH /data/$APPNM
 RUN mkdir -p $ROOT_PATH
