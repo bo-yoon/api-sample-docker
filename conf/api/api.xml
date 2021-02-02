@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="api">
+	<insert id="insertApiMsg" parameterType="org.iptime.glegend.portfolio.client.model.ApiDto" >
+		<selectKey keyProperty="seq" resultType="long" order="BEFORE">
+			select SEQ_CAMP_BY_MSG_MIN_SEQ.nextval FROM DUAL
+		</selectKey>
+			INSERT INTO CAMP_BY_MSG_MIN (
+				SND_DATE,
+			    SEQ,
+			    CH_ID,
+			    CAMP_CD,
+			    CAMP_NM,
+			    SEND_TIME,
+			    SUCES_CNT,
+			    FAIL_CNT,
+				<if test="errCodeCnt1 != null and errCodeCnt1 != ''">
+			    ERR_CODE_CNT_1,
+				</if>
+				<if test="errCodeCnt2 != null and errCodeCnt2 != ''">
+			    ERR_CODE_CNT_2,
+				</if>
+				<if test="errCodeCnt3 != null and errCodeCnt3 != ''">
+			    ERR_CODE_CNT_3,
+				</if>
+				<if test="errCodeCnt4 != null and errCodeCnt4 != ''">
+			    ERR_CODE_CNT_4,
+				</if>
+				<if test="errCodeCnt5 != null and errCodeCnt5 != ''">
+			    ERR_CODE_CNT_5,
+				</if>
+				<if test="rsvFld1 != null and rsvFld1 != ''">
+			    RSV_FLD1,
+				</if>
+				<if test="rsvFld2 != null and rsvFld2 != ''">
+			    RSV_FLD2,
+				</if>
+				<if test="rsvFld3 != null and rsvFld3 != ''">
+			    RSV_FLD3,
+				</if>
+				<if test="rsvFld4 != null and rsvFld4 != ''">
+			    RSV_FLD4,
+				</if>
+				<if test="rsvFld5 != null and rsvFld5 != ''">
+			    RSV_FLD5,
+				</if>
+				<if test="rsvFld6 != null and rsvFld6 != ''">
+			    RSV_FLD6,
+				</if>
+			    DSTR_NM
+			) VALUES (
+			    #{sndDate},
+			    #{seq},
+				#{chId},
+				#{campCd},
+				#{campNm},
+			    #{sendTime},
+				#{sucessCnt},
+				#{failCnt},
+				<if test="errCodeCnt1 != null and errCodeCnt1 != ''">
+				#{errCodeCnt1},
+				</if>
+				<if test="errCodeCnt2 != null and errCodeCnt2 != ''">
+				#{errCodeCnt2},
+				</if>
+				<if test="errCodeCnt3 != null and errCodeCnt3 != ''">
+				#{errCodeCnt3},
+				</if>
+				<if test="errCodeCnt4 != null and errCodeCnt4 != ''">
+				#{errCodeCnt4},
+				</if>
+				<if test="errCodeCnt5 != null and errCodeCnt5 != ''">
+				#{errCodeCnt5},
+				</if>
+				<if test="rsvFld1 != null and rsvFld1 != ''">
+			    #{rsvFld1},
+				</if>
+				<if test="rsvFld2 != null and rsvFld2 != ''">
+			    #{rsvFld2},
+				</if>
+				<if test="rsvFld3 != null and rsvFld3 != ''">
+			    #{rsvFld3},
+				</if>
+				<if test="rsvFld4 != null and rsvFld4 != ''">
+			    #{rsvFld4},
+				</if>
+				<if test="rsvFld5 != null and rsvFld5 != ''">
+			    #{rsvFld5},
+				</if>
+				<if test="rsvFld6 != null and rsvFld6 != ''">
+			    #{rsvFld6},
+				</if>
+				#{dstrNm}
+			)
+	</insert>
+</mapper>

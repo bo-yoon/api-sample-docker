@@ -1,0 +1,57 @@
+---
+# /bin/env.sh 의 PROCESS 값과 동일 하게 세팅 #설치시 변경 
+spring.profiles: local
+
+#테스트 기능 사용여부 : swaggerUI 노출
+test: true
+
+agent:
+  id: agent_local 
+  
+#로그디렉토리 기본경로:agent설치 경로 #설치시 변경
+logging.path: logs
+
+#DB계정 및 URL 정보 암호화 문자열을 괄호() 안에 입력
+datasource.smms:
+  username: ENC(xNkyuUzsocreZiO9PB2BAUtoxAHD282Z)
+  password: ENC(FwBDDb7VxjfiSoUEdR+recwob9wgMfUy)    
+  driver-class-name: oracle.jdbc.OracleDriver
+  jdbc-url: ENC(m76jaoZCy9WzBQNLnijBHzAQormXrcLdWy7OS1znHRfxQ9u7DBMWoloMLnZFeWli)
+
+
+server:
+  port: 38382
+  url:                                                #서버쪽 전송 URL
+    host: http://localhost                            #host : host #설치시 변경
+    port: 8181                                        #port : port #설치시 변경
+
+
+---
+
+# /bin/env.sh 의 PROCESS 값과 동일 하게 세팅 #설치시 변경 
+spring.profiles: prod
+
+#테스트 기능 사용여부 : swaggerUI 노출, 시뮬레이터 기능
+test: true
+
+#(id:agent ID, sysDivCd : 분배기-DT, 중계기-RL, SMMS Agent-AG) 
+agent:
+  id: agent_prod 
+  
+#로그디렉토리 기본경로:agent설치 경로 #설치시 변경
+logging.path: logs
+
+#DB계정 및 URL 정보 암호화 문자열을 괄호() 안에 입력
+datasource: 
+  smms:
+    username: ENC(+BkFxOoDo8m1OrZPZeR2yuCNAIf0Li8c) 
+    password: ENC(8LEzJN03Wee2BQb6SeEld1eNqnnWexJG) 
+    driver-class-name: oracle.jdbc.OracleDriver
+    jdbc-url: jdbc:oracle:thin:@10.10.1.20:1521:test 
+
+server:
+  port: 38382
+  url:                                                #서버쪽 전송 URL
+    host: http://localhost                            #host : host #설치시 변경
+    port: 8181       
+ 
