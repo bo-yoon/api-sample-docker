@@ -11,9 +11,9 @@ RUN mkdir -p $ROOT_PATH
 COPY $APPNM.war $ROOT_PATH/$APPNM.war
 COPY conf $ROOT_PATH/conf
 
-ARG PROFILES
-ARG LOCATION
-ARG MAPPER
+ENV PROFILES prod
+ENV LOCATION conf/agent.yml
+ENV MAPPER conf/api/*.xml
 ENV JAVA_OPTS "-Dspring.profiles.active=$PROFILES -Dspring.config.location=classpath:/application.yml,$ROOT_PATH/$LOCATION -Dmybaits.mapper=$ROOT_PATH/$MAPPER"
 #ENV JAVA_OPTS "-Dspring.profiles.active=$PROFILES"
 
