@@ -10,7 +10,7 @@ spec:
   ports:
     - port: 38382
       protocol: TCP
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: ServiceAccount
