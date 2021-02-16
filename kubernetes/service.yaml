@@ -38,7 +38,7 @@ spec:
       serviceAccountName: api-sample-ac
       containers:
       - name: api-sample
-        image: 192.168.56.102:35000/api-sample:latest
+        image: 192.168.56.102:5000/api-sample:latest
         ports:
         - containerPort: 38382
         resources:
