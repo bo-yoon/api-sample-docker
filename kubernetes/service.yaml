@@ -49,4 +49,4 @@ spec:
       imagePullSecrets:
       - name: regcred
       nodeSelector:
-        nodeType: worker1
+        nodeType: worker02
