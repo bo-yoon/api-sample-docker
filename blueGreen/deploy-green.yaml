@@ -1,1 +1,46 @@
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-sample-deployment-green
+  labels:
+    app: api-sample
+    color: green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-sample
+      color: green
+  template:
+    metadata:
+      labels:
+        app: api-sample
+        color: green
+    spec:
+      serviceAccountName: api-sample-ac
+      containers:
+      - name: api-sample
+        image: 192.168.56.102:5000/api-sample:latest
+        ports:
+        - containerPort: 38382
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 500m
+        command:
+        - sh
+        - -c
+        - |
+          while true
+          do
+            APP_VERSION=`curl -s http://http://192.168.56.103/`
+            echo "[`date`] $APP_VERSION "
+            sleep 1
+          done
+
+      imagePullSecrets:
+      - name: regcred
+      nodeSelector:
+        nodeType: worker02
